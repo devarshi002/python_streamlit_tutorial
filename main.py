@@ -31,3 +31,17 @@ st.dataframe(tabel)
 st.image("linux.jpg", caption="This is my Image", width=400)
 st.audio("sample-3s.mp3")
 st.video("video.mp4")
+
+#checkbox
+state = st.checkbox("Checkbox", value=True)
+if state:
+    st.write("Hi")
+else:
+    pass
+
+st.radio("in which city do you live", options=("nagpur","bengluru","chennai"))
+def btn_click():
+    print("btn clicked")
+btn=st.button("Click me ", on_click=btn_click)
+st.selectbox("What is your fav car", options=("audo","bmw","mercediz","tata","maruti"))
+st.multiselect("select multiple skills", options=("sql","python","html","css","js","java","oracle","database"))
