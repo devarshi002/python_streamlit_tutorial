@@ -1,0 +1,11 @@
+import streamlit as st 
+st.markdown("<h1>User Registration</h1>", unsafe_allow_html=True)
+form = st.form("form 1")
+form.text_input("First Name")
+col1,col2 = st.columns(2)
+col1.text_input("first name")
+col2.text_input("last name")
+form.text_input("Email address")
+form.text_input("password")
+form.text_input("confirm password")
+form.form_submit_button("Submit")
