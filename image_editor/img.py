@@ -1,5 +1,6 @@
 import streamlit as st
 from PIL import Image
+from PIL.ImageFilter import *
 st.markdown("Image Editor")
 st.markdown("---")
 image=st.file_uploader("Upload your Image", type=["jpg","png","jpeg"])
@@ -23,5 +24,16 @@ if image:
     s_btn = st.button("submit")
     if s_btn:
         edited=img.resize((width,height)).rotate(degree)
-        st.image(edited)
+        filtered=edited
+        if filters != "None":
+            if filters == "Blur":
+                filtered=edited.filter(BLUR)
+            elif filters == "Detail":
+                filtered=edited.filter(DETAIL)
+            elif filters == "Emboss":
+                filtered=edited.filter(EMBOSS)
+            else:
+                filtered=edited.filter(SMOOTH)
+        st.image(filtered)
+
 
